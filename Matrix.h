@@ -18,6 +18,6 @@ public:
 	void setRow(std::vector<double>& newRow);
 	void setVal(double newVal);
 
-	//override
-
+	//overload
+	std::ostream& operator<<(std::ostream out);
 };

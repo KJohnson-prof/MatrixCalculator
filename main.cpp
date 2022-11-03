@@ -1,8 +1,12 @@
-#include "Matrix.cpp"
+#include "Matrix.h"
 
 int main()
 {
-	Matrix A = new Matrix(2, 2);
+	//regular constructor
+	Matrix A = Matrix(2, 2);
+	std::cout << A;
+
+	//deep copy constructor
 
 	return 0;
 }

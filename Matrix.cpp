@@ -1,5 +1,6 @@
 #include "Matrix.h"
 
+//constructors
 Matrix::Matrix(int row, int col)
 {
 	vec.resize(row);
@@ -14,7 +15,21 @@ Matrix::Matrix(int row, int col)
 	}
 }
 
-std::ostream& Matrix::operator<<(std::ostream out)
+Matrix::Matrix(Matrix& rhs)
 {
-	//TODO
+	for (auto i : rhs.vec)
+		vec.push_back(i);
+}
+
+std::ostream& operator<<(std::ostream& out, const Matrix& rhs)
+{
+	for (auto i : rhs.vec)
+	{ 
+		out << "( ";
+		for (auto j : i)
+			out << j << " ";
+		out << ")" << std::endl;
+	}
+
+	return out;
 }

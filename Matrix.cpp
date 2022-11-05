@@ -57,3 +57,38 @@ std::ostream& operator<<(std::ostream& out, const Matrix& rhs)
 
 	return out;
 }
+
+Matrix& operator+(const Matrix& A, const Matrix& B)
+{
+
+	std::cout << "add entered" << std::endl;
+
+	Matrix result = Matrix();
+	if (A.vec.size() != B.vec.size() || A.vec.size() <= 0 || B.vec.size() <= 0)
+		return result;
+
+	std::cout << "first if statement" << std::endl;
+
+	if (A.vec.at(0).size() != B.vec.at(0).size())
+		return result;
+
+	result.vec.resize(A.vec.size());
+
+	std::cout << "preloop" << std::endl;
+
+	for (size_t i = 0; i < A.vec.size(); i++)
+	{
+
+		std::cout << "first loop entered" << std::endl;
+
+		result.vec.at(i).resize(A.vec.at(i).size());
+		for (size_t j = 0; j < A.vec.at(i).size(); j++)
+		{
+			result.vec.at(i).at(j) = A.vec.at(i).at(j) + B.vec.at(i).at(j);
+		}
+	}
+
+	std::cout << "add exitted" << std::endl;
+
+	return result;
+}

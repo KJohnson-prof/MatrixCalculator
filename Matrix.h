@@ -9,7 +9,7 @@ private:
 	std::vector<std::vector<double>> vec;
 public:
 	//constructors
-	Matrix() {};
+	Matrix() { vec.resize(0); };
 	Matrix(int row, int col);
 	Matrix(Matrix& rhs);
 	Matrix(Matrix&& rhs) noexcept;
@@ -20,4 +20,5 @@ public:
 
 	//overload
 	friend std::ostream& operator<<(std::ostream& out, const Matrix& rhs);
+	friend Matrix& operator+(const Matrix& A, const Matrix& B);
 };
